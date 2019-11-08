@@ -1,4 +1,5 @@
 const titleClickHandler = function (event) {
+    event.preventDefault();
     const clickedElement = this;
     console.log(event);
 
@@ -9,7 +10,7 @@ const titleClickHandler = function (event) {
         activeLink.classList.remove('active');
     }
 
-    /* [IN PROGRESS] add class 'active' to the clicked link */
+    /* [DONE] add class 'active' to the clicked link */
 
     console.log('clicked', clickedElement);
     clickedElement.classList.add('active');
@@ -22,9 +23,15 @@ const titleClickHandler = function (event) {
         activeArticle.classList.remove('active');
     }
 
-    /* get 'href' attribute from the clicked link */
+    /* [DONE] get 'href' attribute from the clicked link */
 
-    /* find the correct article using the selector (value of 'href' attribute) */
+    const hrefAttribute = clickedElement.getAttribute('href');
+    console.log(hrefAttribute);
+
+
+    /* [IN PROGRESS] find the correct article using the selector (value of 'href' attribute) */
+
+
 
     /* add class 'active' to the correct article */
 }
