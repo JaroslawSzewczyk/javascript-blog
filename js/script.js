@@ -70,14 +70,13 @@
 
         titleList.insertAdjacentHTML('afterbegin', html);
 
+        const links = document.querySelectorAll('.titles a');
+
+        for (let link of links) {
+            link.addEventListener('click', titleClickHandler)
+        }
     }
 
     generateTitleLinks();
-
-    const links = document.querySelectorAll('.titles a');
-
-    for (let link of links) {
-        link.addEventListener('click', titleClickHandler)
-    }
 
 }
