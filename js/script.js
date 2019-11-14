@@ -115,3 +115,52 @@ function generateTags(){
 
 generateTags();
 
+function tagClickHandler(event){
+  /*[DONE] prevent default action for this event */
+  event.preventDefault();
+
+  /*[DONE] make new constant named "clickedElement" and give it the value of "this" */
+
+  const clickedElement = this;
+  console.log(clickedElement);
+
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
+  const href = clickedElement.getAttribute('href'); //Czy tak ma być?
+  console.log('href', href);
+
+  /* make a new constant "tag" and extract tag from the "href" constant */
+  const tag = href; //Czy oto chodzi ?
+
+/* find all tag links with class active */
+  const activeTagLinks = document.querySelectorAll('a.active[href^="' + tag +'"]'); //Czy ten selektor jest ok? Czy klasa active będzie doawana do paru tagów a?
+  console.log('tag', activeTagLinks);
+  /* START LOOP: for each active tag link */
+
+    /* remove class active */
+
+  /* END LOOP: for each active tag link */
+
+  /* find all tag links with "href" attribute equal to the "href" constant */
+
+  /* START LOOP: for each found tag link */
+
+    /* add class active */
+
+  /* END LOOP: for each found tag link */
+
+  /* execute function "generateTitleLinks" with article selector as argument */
+}
+
+function addClickListenersToTags(){
+  /*[DONE] find all links to tags */
+  const links = document.querySelectorAll('.post-tags li a');
+  /*[DONE] START LOOP: for each link */
+  for (let link of links) {
+    /*[DONE] add tagClickHandler as event listener for that link */
+    link.addEventListener('click', tagClickHandler); // Czy tak ma być ?
+    /*[DONE] END LOOP: for each link */
+  }
+}
+
+addClickListenersToTags();
+
