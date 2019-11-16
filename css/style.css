@@ -110,4 +110,51 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+/* Tags */
+.tags {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.tags a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.tag-size-5 {
+  font-family: "Sacramento", cursive;
+  font-size: 42px;
+  color: #a102ea;
+}
+
+.tag-size-4 {
+  font-family: "Sacramento", cursive;
+  font-size: 26px;
+  color: #ea02c0;
+}
+
+.tag-size-3 {
+  font-family: "Sacramento", cursive;
+  font-size: 24px;
+  color: #2c02ea;
+}
+
+.tag-size-2 {
+  font-family: "Sacramento", cursive;
+  font-size: 18px;
+  color: #02cfea;
+}
+
+.tag-size-1 {
+  font-family: "Sacramento", cursive;
+  font-size: 14px;
+  color: #02ea91;
+}
 /*# sourceMappingURL=style.css.map */
