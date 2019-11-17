@@ -39,9 +39,9 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags.list',
     optCloudClassCount = 5,
-    optCloudClassPrefix = 'tag-size-';
+    optCloudClassPrefix = 'tag-size-',
+    optAuthorsListSelector = '.list.authors';
 
   function generateTitleLinks(customSelector = '') {
 
@@ -164,7 +164,6 @@
     //console.log(allTags);
 
     const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams:', tagsParams);
 
     /* [NEW][DONE] create variable for all links HTML code*/
     let allTagsHTML = '';
@@ -236,8 +235,13 @@
 
   function generateAuthors() {
 
+    /* [NEW][DONE] create a new variable allTags with an empty Object */
+    let allAuthors = {};
+
     /* [DONE] find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
+    const authorList = document.querySelector(optAuthorsListSelector);
+
 
     for (let article of articles) {
 
@@ -247,8 +251,20 @@
       /* [DONE] get article data-author attribute */
       const dataAuthor = article.getAttribute('data-author');
 
+      /* [NEW] check if this link is NOT already in allTags */
+      if (!allAuthors.hasOwnProperty(dataAuthor)) {
+        /* [NEW] add generated code to allTags array */
+        allAuthors[dataAuthor] = 1;
+      } else {
+        allAuthors[dataAuthor]++;
+      }
+
       /*[DONE] insert HTML of all the links into the ul list */
       articleAuthor.insertAdjacentHTML('beforeend', 'by <a href="' + dataAuthor + '">' + dataAuthor + '</a>');
+    }
+    /*[NEW] [DONE] Generate HTML author list in sidebar*/
+    for (let author in allAuthors) {
+      authorList.insertAdjacentHTML('afterbegin', '<li><a href="#">' + author + '(' + allAuthors[author] + ')' + '</a></li>');
     }
 
   }
