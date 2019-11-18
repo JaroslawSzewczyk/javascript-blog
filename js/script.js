@@ -260,7 +260,19 @@
     }
   }
 
+  function addClickCloudListenersToTags() {
+    /*[DONE] find all links to tags */
+    const links = document.querySelectorAll('.tags li a');
+    /*[DONE] START LOOP: for each link */
+    for (let link of links) {
+      /*[DONE] add tagClickHandler as event listener for that link */
+      link.addEventListener('click', tagClickHandler); // Czy tak ma być ?
+      /*[DONE] END LOOP: for each link */
+    }
+  }
+
   addClickListenersToTags();
+  addClickCloudListenersToTags();
 
   function generateAuthors() {
 
@@ -312,8 +324,6 @@
       });
 
       linkAuthor = templates.tagAuthorLink(allAtuhorsData);
-      console.log(linkAuthor);
-      //authorList.insertAdjacentHTML('afterbegin', linkAuthor);
     }
     authorList.insertAdjacentHTML('afterbegin', linkAuthor);
 
@@ -331,7 +341,6 @@
 
     /*[DONE] make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    console.log(href);
 
     /*[Done] find all author links with class active */
     const activeAuthorLinks = document.querySelectorAll('a.active[href^="' + href + '"]');
@@ -367,6 +376,15 @@
 
   }
 
-  addClickListenersToAuthors();
+  function addClickListListenersToAuthors() {
 
+    const authors = document.querySelectorAll('.authors li a');
+
+    for (let author of authors) {
+      author.addEventListener('click', authorClickHandler);
+    }
+  }
+
+  addClickListenersToAuthors();
+  addClickListListenersToAuthors();
 }

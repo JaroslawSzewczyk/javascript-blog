@@ -220,7 +220,7 @@
               </ul>
             </div>
           </article>
-          <article class="post" id="article-10" data-tags="dog cat chicken" data-author="George Tuxedo">
+          <article class="post" id="article-10" data-tags="dog cat chicken" data-author="#George Tuxedo">
             <h3 class="post-title">Article 10</h3>
             <p class="post-author"></p>
             <div class="post-content">
@@ -267,12 +267,12 @@
   </script>
   <script id="tagCloudLink" type="text/x-handlebars-template">
     {{#each tags}}
-    <li><a class="{{ className }}" >{{ tag }}</a></li>
+    <li><a href="#tag-{{ tag }}" class="{{ className }}" >{{ tag }}</a></li>
     {{/each}}
   </script>
   <script id="tagAuthorLink" type="text/x-handlebars-template">
     {{#each tags}}
-    <li></li><a href="">{{ name }} ({{ count }})</span></a></li>
+    <li><a href="{{ name }}">{{ name }} ({{ count }})</span></a></li>
     {{/each}}
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
